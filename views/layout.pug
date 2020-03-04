@@ -1,0 +1,44 @@
+doctype html
+html
+	head
+		meta(charset='UTF-8')
+		title= title
+		link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css', integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh', crossorigin='anonymous')
+		link(rel='stylesheet', href='/stylesheets/style.css')
+	body
+		nav(class='navbar navbar-expand-lg navbar-dark bg-primary', id='navbar')
+			div(class='mr-auto')
+				span(class='icon')
+					//- img(src='https://developer.clashroyale.com/favicon-32x32.09ad6d.png')
+					img(src='../images/logo-cr.png' height='50px')
+			button(class='navbar-toggler', type='button', data-toggle='collapse', data-target='#navbarToggler', aria-controls='navbarToggler', aria-expanded='false', aria-label='Toggle navigation')
+				span(class='navbar-toggler-icon')
+			div(class='collapse navbar-collapse', id='navbarToggler')
+				ul(class='navbar-nav mr-auto mt-2 mt-lg-0')
+					li(class='nav-item')
+						a(class='nav-link', href='#') Inicio 
+					//- li(class='nav-item')
+					//- 	a(class='nav-link', href='#') Buscar
+			ul(class='navbar-nav mt-2 mt-lg-0 d-none d-lg-block')
+				li(class='nav-item dropdown')
+					a(class="nav-link dropdown-toggle" href="#" id='navbarDropdownMenuLink' role='button' data-cat='0' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false') Clan
+					div(class='dropdown-menu' aria-labelledby='navbarDropdownMenuLink')
+						a(class='dropdown-item' data-cat='0' href='#') Clan
+						a(class='dropdown-item' data-cat='1' href='#') Player
+						a(class='dropdown-item' data-cat='2' href='#') Location
+			form(class='form-inline ml-auto d-none d-lg-block', id='form--search')
+				div(class='input-group')
+					input(type='text', class='form-control', id='input--search' placeholder='#000000A')
+					div(class='input-group-append')
+						button(class='btn btn-secondary' type='button' id='span--search') 
+							i(class='fas fa-search')
+						//- span(class='input-group-text', href='#',id='span--search')
+							
+
+		block content
+
+		script(src='https://kit.fontawesome.com/9c0d9f5890.js', crossorigin='anonymous')
+		script(src='https://code.jquery.com/jquery-3.4.1.min.js', integrity='sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=', crossorigin='anonymous')
+		script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo', crossorigin='anonymous')
+		script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js', integrity='sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6' crossorigin='anonymous')
+		script(src='/javascripts/functions.js')

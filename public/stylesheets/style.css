@@ -1,0 +1,14 @@
+@import 'https://clashroyale.com/blog-assets/fonts/supercell-magic.woff';
+@font-face {
+	font-family: 'supercell-magic';
+	src: url(https://clashroyale.com/blog-assets/fonts/supercell-magic.woff) format('woff');
+}
+body {
+  padding: 0px;
+  font-family: "supercell-magic";
+  /*font: 14px, "Supercell-Magic", Arial, sans-serif!important;*/
+}
+
+.logo{
+	height: : 50px!important;
+}
