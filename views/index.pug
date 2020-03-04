@@ -1,5 +1,16 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	div(class='table-responsive', id='div--cardsPlayer')
+		table(class='table table-striped bg-white')
+				thead
+					tr
+						th Carta
+						th Nombre
+						th Level
+						th Accion
+				tbody(id='tbody--query')
+		
+		div(class='clearfix d-none' id='div--spinner')
+			div(class='spinner-border float-right text-primary' role='status')
+				span(class='sr-only') Loading...

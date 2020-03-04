@@ -18,11 +18,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-/*app.param('user');*/
-/*app.param('id', function(req, res, next, useidrid){
-    console.log('cacaca: ' + id);
-    next();
-});*/
 
 
 app.use('/', indexRouter);

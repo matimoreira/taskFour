@@ -10,22 +10,35 @@ $(function() {
 
 	});
 
-	$('#span--search').click(function () {
+	$('#button--search').click(function () {
 		var query = $('#input--search').val();
+		console.log(query);
+		var url = 'http://localhost:3000/getPlayer/' + query;
 		var type = $('#navbarDropdownMenuLink').data('cat');
 		$.ajax({
-			url: '/players',
+			url: url,
 			type: 'GET',
-			dataType: 'json',
-			headers:{
-				query: query
-			},
+			dataType: 'json'
 		})
-		.done(function() {
+		.done(function(response) {
+			response.currentDeck.forEach(function (element, index, array) {
+				$('#tbody--query').append(`
+				<tr>
+					<td><img src='${element.iconUrls.medium}' height="75px"></td>
+					<td>${element.name}</td>
+					<td>${element.level}</td>
+					<td>
+						<a data-card=${element.id} class='btn btn-primary text-white button--view'>
+							<i class='far fa-eye'></i>
+						</a>
+					</td>
+				</tr>`)
+				console.log(element.name);
+			});
 			console.log("success");
 		})
-		.fail(function() {
-			console.log("error");
+		.fail(function(response) {
+			console.log(response);
 		})
 		.always(function() {
 			console.log("complete");
