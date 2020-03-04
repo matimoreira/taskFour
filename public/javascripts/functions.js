@@ -12,13 +12,35 @@ $(function() {
 
 	$('#button--search').click(function () {
 		var query = $('#input--search').val();
-		console.log(query);
-		var url = 'http://localhost:3000/getPlayer/' + query;
 		var type = $('#navbarDropdownMenuLink').data('cat');
+
+
+		switch (type) {
+  			case 0:
+  				getPlayersByTag(query);
+  				break;
+  			case 1:
+  				break;
+  			case 2:
+  				break;
+  			default:
+  				getPlayersByTag(query);
+  				break;
+		}
+	});
+
+
+
+
+	function getPlayersByTag(tag) {
+
+		var url = 'http://localhost:3000/getPlayer/' + tag;
+
 		$.ajax({
 			url: url,
 			type: 'GET',
-			dataType: 'json'
+			dataType: 'json',
+			beforeSend: showLoadingImg
 		})
 		.done(function(response) {
 			response.currentDeck.forEach(function (element, index, array) {
@@ -41,34 +63,20 @@ $(function() {
 			console.log(response);
 		})
 		.always(function() {
+			hideLoadingImg();
 			console.log("complete");
 		});
-	});
+	}
 
 
-	function genius_get(url/*, query*/) {
-		return $.ajax({
-			url: 'https://api.clashroyale.com/v1/' + url,
-			type: 'get',
-			dataType: 'json',
-			/*data:{
-				q: query
-			},*/
-			headers:{
-				'x-rapidapi-host': 'genius.p.rapidapi.com',
-				'x-rapidapi-key': 'a6ec3401a8mshcb4faf17e6eb123p137240jsnbe2edb4cd9ad'
-			},
-			beforeSend: showLoadingImg
-		})
-		.always(function() {
-			hideLoadingImg();
-			console.log('esto se ejecuta siempre');
-		})
-		.fail(function() {
-			console.log('esto se ejecuta cuando hubo un error');
-			// handle request failures
-		});
+	function showLoadingImg(){
+		$('#div--spinner').removeClass('d-none');
+		console.log('showLoadingImg');
+	}
 
+	function hideLoadingImg() {
+		$('#div--spinner').addClass('d-none');
+		console.log('hideLoadingImg');
 	}
 	
 });
