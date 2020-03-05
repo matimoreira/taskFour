@@ -6,6 +6,11 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var playersRouter = require('./routes/players');
+var clansRouter = require('./routes/clans');
+var locationsRouter = require('./routes/locations');
+
+const API_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjBlNmQxYjlhLTc2NWEtNGU3ZC04OTc4LWRkMThhZDI0MzNkYSIsImlhdCI6MTU4MzI3NjI4OCwic3ViIjoiZGV2ZWxvcGVyL2MxZjhiZjQyLWMzMjEtOWIxNS00YjE5LTQ5YjJkNDRlZGMxNyIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyIxOTAuMTgzLjEwMy4xNzUiXSwidHlwZSI6ImNsaWVudCJ9XX0.PdxfwmaCgtXKT0TRvE_NUbNWgQlpCeuKO_GpaNAGpne8JAkAs3QT1X0Vvb2p3PlmLHT341WCYTLgFf6L59viuQ';
+
 
 var app = express();
 
@@ -22,6 +27,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/', playersRouter);
+app.use('/', clansRouter);
+app.use('/', locationsRouter);
+
 /*app.use('/getCurrentsCards', playersRouter );*/
 
 // catch 404 and forward to error handler

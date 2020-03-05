@@ -1,7 +1,7 @@
 extends layout
 
 block content
-	div(class='table-responsive', id='div--cardsPlayer')
+	div(class='table-responsive d-none', id='div--cardsPlayer')
 		table(class='table table-striped bg-white')
 				thead
 					tr
@@ -10,7 +10,27 @@ block content
 						th Level
 						th Accion
 				tbody(id='tbody--query')
-		
-		div(class='clearfix d-none' id='div--spinner')
-			div(class='spinner-border float-right text-primary' role='status')
-				span(class='sr-only') Loading...
+
+	div(class='table-responsive d-none', id='div--clanPlayers')
+		table(class='table table-striped bg-white')
+				thead
+					tr
+						th Nombre
+						th Copas
+						th Arena
+						th Rol
+						th Donaciones
+						th Accion
+				tbody(id='tbody--queryClans')
+
+	div(class='table-responsive d-none', id='div--Locations')
+		table(class='table table-striped bg-white')
+				thead
+					tr
+						th Nombre
+						th Accion
+				tbody(id='tbody--queryLocations')
+
+	div(class='clearfix d-none' id='div--spinner')
+		div(class='spinner-border float-right text-primary' role='status')
+			span(class='sr-only') Loading...
